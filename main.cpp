@@ -8,12 +8,8 @@
 int main() {
     sf::RenderWindow window(sf::VideoMode(800, 600), "Mechanic Cactus");
     
-    Fundamental::Texture texture1("res/bee.png");
-    Map::Entity ent1;
-    ent1.setTexture(&texture1);
-    
-    sf::Sprite sprite;
-    sprite.setTexture(*ent1.getTexture()->getTexture());
+    Map::MapArray a1("res/maps/map1.mcm", 7, 6);
+
 
     while (window.isOpen())
     {
@@ -25,8 +21,17 @@ int main() {
         }
 
         window.clear();
+
+        sf::Sprite sprite;
+        for (int i = 0; i < 6; i++) {
+            for (int j = 0; j < 7; j++) {
+                sprite.setTexture(*a1.getNode(j,i)->getPathNode()->getTexture()->getTexture());
+                window.draw(sprite);
+                sprite.move(33, 0);
+            }
+            sprite.setPosition(0, sprite.getPosition().y + 33);
+        }
         
-        window.draw(sprite);
         window.display();
     }
 

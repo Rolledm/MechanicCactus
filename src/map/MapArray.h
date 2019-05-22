@@ -9,6 +9,7 @@ namespace Map {
     class MapArray {
     public:
         MapArray(int MAX_X, int MAX_Y);
+        MapArray(std::string filename, int MAX_X, int MAX_Y);
 
         Node* getNode(int x, int y);
     private:
