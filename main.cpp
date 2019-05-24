@@ -5,9 +5,11 @@
 #include "src/map/MapArray.h"
 #include "src/tools/Logger.h"
 
+#include "src/aux/defines.h"
+
 
 int main() {
-    sf::RenderWindow window(sf::VideoMode(800, 600), "Mechanic Cactus");
+    sf::RenderWindow window(sf::VideoMode(1366, 768), "Mechanic Cactus");
     
     Map::MapArray a1("res/maps/map1.mcm", 7, 6);
 
