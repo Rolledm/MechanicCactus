@@ -5,6 +5,8 @@
 #include "src/map/MapArray.h"
 #include "src/tools/Logger.h"
 
+#include "src/map/MapRenderer.h"
+
 #include "src/aux/defines.h"
 
 
@@ -12,6 +14,7 @@ int main() {
     sf::RenderWindow window(sf::VideoMode(1366, 768), "Mechanic Cactus");
     
     Map::MapArray a1("res/maps/map1.mcm", 7, 6);
+    Tools::Renderer* mr = new Map::MapRenderer(&a1);
 
     while (window.isOpen())
     {
@@ -24,15 +27,7 @@ int main() {
 
         window.clear();
 
-        sf::Sprite sprite;
-        for (int i = 0; i < 6; i++) {
-            for (int j = 0; j < 7; j++) {
-                sprite.setTexture(*a1.getNode(j,i)->getPathNode()->getTexture()->getTexture());
-                window.draw(sprite);
-                sprite.move(33, 0);
-            }
-            sprite.setPosition(0, sprite.getPosition().y + 33);
-        }
+        mr->renderScreen(&window);
         
         window.display();
     }
