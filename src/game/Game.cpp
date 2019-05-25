@@ -1,37 +1,20 @@
 #include "Game.h"
 #include "../map/MapArray.h"
 #include "../map/MapRenderer.h"
+#include "../main_menu/MainMenuRenderer.h"
 
 namespace Game {
     
     Game::Game() {
-        window = new sf::RenderWindow(sf::VideoMode(1366, 768), "Mechanic Cactus");
-        eventDispatcher = new EventDispatcher();
+        windowDispatcher = new WindowDispatcher();
     }
 
     Game::~Game() {
-        delete window;
-        delete eventDispatcher;
+        delete windowDispatcher;
     }
 
     void Game::start() {
-        Map::MapArray a1("res/maps/map1", 7, 6);
-        Tools::Renderer* mr = new Map::MapRenderer(&a1);
-
-        while (window->isOpen())
-        {
-            sf::Event event;
-            while (window->pollEvent(event))
-            {
-                eventDispatcher->handleEvent(window, event);
-            }
-
-            window->clear();
-
-            mr->renderScreen(window);
-            
-            window->display();
-        }
+        windowDispatcher->startDispatch();
     }
 
 }

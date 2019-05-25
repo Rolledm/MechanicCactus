@@ -1,8 +1,7 @@
 #ifndef GAME_H
 #define GAME_H
 
-#include <SFML/Graphics.hpp>
-#include "EventDispatcher.h"
+#include "WindowDispatcher.h"
 
 namespace Game {
 
@@ -15,8 +14,7 @@ namespace Game {
         void start();
 
     private:
-        sf::RenderWindow* window;
-        EventDispatcher* eventDispatcher;
+        WindowDispatcher* windowDispatcher;
     };
 
 }
