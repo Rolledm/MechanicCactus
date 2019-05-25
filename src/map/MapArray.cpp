@@ -23,14 +23,15 @@ namespace Map {
     }
 
     MapArray::MapArray(std::string filename, int MAX_X, int MAX_Y) : MAX_X(MAX_X), MAX_Y(MAX_Y) {
-        std::ifstream mapFile(filename);
-        std::string line;
-        if (mapFile.is_open()) {
-            array = new Node**[MAX_Y];
+        array = new Node**[MAX_Y];
             for (int i = 0; i < MAX_Y; i++) {
                 array[i] = new Node*[MAX_X];
             }
-
+        
+        // TODO: divide loading the map to functions
+        std::ifstream mapFile(filename + ".mcm");
+        std::string line;
+        if (mapFile.is_open()) {
             int i = 0;
             while(getline(mapFile,line)) {
                 for (int j = 0; j < MAX_X; j++) {
@@ -42,6 +43,24 @@ namespace Map {
             }
             mapFile.close();
         }
+
+        std::ifstream mapFile1(filename + "_e.mcm");
+        if (mapFile1.is_open()) {
+            int i = 0;
+            while(getline(mapFile1,line)) {
+                for (int j = 0; j < MAX_X; j++) {
+                    if (line[j] != '.') {
+                        Fundamental::Texture* texture = TextureHolder::getInstance().getTexture(TextureTypesDistributor::getInstance().getType(line[j]));
+                        Entity* entity = new Entity();
+                        entity->setTexture(texture);
+                        array[i][j]->setEntity(entity);
+                    }
+                }
+                i++;
+            }
+            mapFile1.close();
+        }
+
     }
 
     Node* MapArray::getNode(int x, int y) {

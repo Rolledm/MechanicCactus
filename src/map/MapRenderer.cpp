@@ -10,6 +10,11 @@ namespace Map {
             for (int j = 0; j < 7; j++) {
                 sprite.setTexture(*mapArray->getNode(j,i)->getPathNode()->getTexture()->getTexture());
                 window->draw(sprite);
+                Map::Entity* entity = mapArray->getNode(j,i)->getEntity();
+                if (entity != nullptr) {
+                    sprite.setTexture(*entity->getTexture()->getTexture());
+                    window->draw(sprite);
+                }
                 sprite.move(33, 0);
             }
             sprite.setPosition(0, sprite.getPosition().y + 33);

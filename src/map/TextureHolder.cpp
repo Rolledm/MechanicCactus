@@ -27,6 +27,9 @@ namespace Map {
         case TextureTypes::Water:
             path += "water";
             break;
+
+        case TextureTypes::Bee:
+            path += "bee";
         
         default:
             break;

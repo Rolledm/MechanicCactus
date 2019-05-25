@@ -13,7 +13,7 @@
 int main() {
     sf::RenderWindow window(sf::VideoMode(1366, 768), "Mechanic Cactus");
     
-    Map::MapArray a1("res/maps/map1.mcm", 7, 6);
+    Map::MapArray a1("res/maps/map1", 7, 6);
     Tools::Renderer* mr = new Map::MapRenderer(&a1);
 
     while (window.isOpen())

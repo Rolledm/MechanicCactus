@@ -1,4 +1,5 @@
 #include "Node.h"
+#include <iostream>
 
 namespace Map {
     
@@ -9,7 +10,7 @@ namespace Map {
     }
 
     Entity* Node::getEntity() {
-        return getEntity();
+        return entity;
     }
 
     PathNode* Node::getPathNode() {
