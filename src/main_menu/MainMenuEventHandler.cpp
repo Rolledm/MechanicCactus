@@ -1,7 +1,5 @@
 #include "MainMenuEventHandler.h"
 
-#include <iostream>
-
 namespace MainMenu {
 
     AUX::DispatcherReturnCodes MainMenuEventHandler::handleEvent(sf::Event event) {
