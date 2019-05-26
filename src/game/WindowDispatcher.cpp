@@ -48,7 +48,7 @@ namespace Game {
         if (returnCode == AUX::DispatcherReturnCodes::GO_MAP) {
             Map::MapArray* a1 = new Map::MapArray("res/maps/map1", 7, 6);
             renderer = new Map::MapRenderer(a1);
-            eventHandler = new Map::MapEventHandler();
+            eventHandler = new Map::MapEventHandler(a1);
         } else if (returnCode == AUX::DispatcherReturnCodes::GO_MENU) {
             renderer = new MainMenu::MainMenuRenderer();
             eventHandler = new MainMenu::MainMenuEventHandler();

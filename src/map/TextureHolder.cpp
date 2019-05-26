@@ -30,6 +30,11 @@ namespace Map {
 
         case TextureTypes::Bee:
             path += "bee";
+            break;
+
+        case TextureTypes::Player:
+            path+= "player";
+            break;
         
         default:
             break;

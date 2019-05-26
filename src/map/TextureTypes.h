@@ -4,7 +4,7 @@
 namespace Map {
 
     enum class TextureTypes {
-        Grass, Water, Bee
+        Grass, Water, Bee, Player
     };
 
 }

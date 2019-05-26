@@ -61,10 +61,20 @@ namespace Map {
             mapFile1.close();
         }
 
+        player = new Player(2, 3);
+        Fundamental::Texture* playerTexture = TextureHolder::getInstance().getTexture(TextureTypesDistributor::getInstance().getType('P'));
+        player->setTexture(playerTexture);
+        array[3][2]->setEntity(player);
     }
 
     Node* MapArray::getNode(int x, int y) {
         return array[y][x];
+    }
+
+    void MapArray::movePlayer(int x, int y) {
+        array[player->getY()][player->getX()]->setEntity(nullptr);
+        player->setPosition(player->getX() + x, player->getY() + y);
+        array[player->getY()][player->getX()]->setEntity(player);
     }
 
 }

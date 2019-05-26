@@ -16,6 +16,9 @@ namespace Map {
         case 'b':
             return TextureTypes::Bee;
         
+        case 'P' :
+            return TextureTypes::Player;
+        
         default:
             return TextureTypes::Grass; // TODO: add smth like TextureTypes::Null.
         }

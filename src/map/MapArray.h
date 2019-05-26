@@ -2,6 +2,7 @@
 #define MAPARRAY_H
 
 #include "Node.h"
+#include "Player.h"
 #include <vector>
 
 namespace Map {
@@ -12,9 +13,12 @@ namespace Map {
         MapArray(std::string filename, int MAX_X, int MAX_Y);
 
         Node* getNode(int x, int y);
+
+        void movePlayer(int x, int y);
     private:
         const int MAX_X, MAX_Y;
         Node*** array;
+        Player* player;
     };
 
 }
