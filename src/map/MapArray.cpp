@@ -72,9 +72,13 @@ namespace Map {
     }
 
     void MapArray::movePlayer(int x, int y) {
-        array[player->getY()][player->getX()]->setEntity(nullptr);
-        player->setPosition(player->getX() + x, player->getY() + y);
-        array[player->getY()][player->getX()]->setEntity(player);
+        if (array[player->getY() + y][player->getX() + x]->getEntity() == nullptr) {
+            array[player->getY()][player->getX()]->setEntity(nullptr);
+            player->setPosition(player->getX() + x, player->getY() + y);
+            array[player->getY()][player->getX()]->setEntity(player);
+        } else {
+            // TDB : actions w/ entities
+        }
     }
 
 }
