@@ -4,6 +4,7 @@ namespace Map {
 
     Player::Player(int x, int y) {
         setPosition(x, y);
+        type = EntityTypes::Hero;
     }
 
     void Player::setPosition(int x, int y) {

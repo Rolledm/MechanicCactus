@@ -2,6 +2,7 @@
 #define ENTITY_H
 
 #include "../fundamental/Texture.h"
+#include "EntityTypes.h"
 
 namespace Map{
 
@@ -9,8 +10,11 @@ namespace Map{
     public:
         Fundamental::Texture* getTexture();
         void setTexture(Fundamental::Texture* texture);
+        EntityTypes getType();
     private:
         Fundamental::Texture* texture;
+    protected:
+        EntityTypes type;
     };
 
 }

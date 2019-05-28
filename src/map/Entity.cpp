@@ -9,5 +9,9 @@ namespace Map {
     void Entity::setTexture(Fundamental::Texture* texture) {
         this->texture = texture;
     }
+
+    EntityTypes Entity::getType() {
+        return type;
+    }
     
 }

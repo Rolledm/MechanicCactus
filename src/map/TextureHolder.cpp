@@ -33,8 +33,11 @@ namespace Map {
             break;
 
         case TextureTypes::Player:
-            path+= "player";
+            path += "player";
             break;
+
+        case TextureTypes::Shelter:
+            path += "shelter";
         
         default:
             break;

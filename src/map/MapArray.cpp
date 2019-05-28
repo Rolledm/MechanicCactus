@@ -5,6 +5,10 @@
 
 #include "TextureHolder.h"
 #include "TextureTypesDistributor.h"
+#include "EntityHandler.h"
+
+#include "SimpleEnemy.h"
+#include "Shelter.h"
 
 namespace Map {
 
@@ -51,7 +55,13 @@ namespace Map {
                 for (int j = 0; j < MAX_X; j++) {
                     if (line[j] != '.') {
                         Fundamental::Texture* texture = TextureHolder::getInstance().getTexture(TextureTypesDistributor::getInstance().getType(line[j]));
-                        Entity* entity = new Entity();
+                        // TODO: Add entity manager. Remove this GOVNOCODE
+                        Entity* entity;
+                        if (line[j] == 'b') {
+                            entity = new SimpleEnemy();
+                        } else if (line[j] == 's') {
+                            entity = new Shelter();
+                        }
                         entity->setTexture(texture);
                         array[i][j]->setEntity(entity);
                     }
@@ -77,7 +87,7 @@ namespace Map {
             player->setPosition(player->getX() + x, player->getY() + y);
             array[player->getY()][player->getX()]->setEntity(player);
         } else {
-            // TDB : actions w/ entities
+            EntityHandler::getInstance().ProcessEntity(array[player->getY() + y][player->getX() + x]->getEntity());
         }
     }
 
