@@ -4,6 +4,8 @@
 #include "../map/MapRenderer.h"
 #include "../main_menu/MainMenuRenderer.h"
 #include "../map/MapEventHandler.h"
+#include "../shelter/ShelterEventHandler.h"
+#include "../shelter/ShelterRenderer.h"
 
 #include <iostream>
 
@@ -52,6 +54,9 @@ namespace Game {
         } else if (returnCode == AUX::DispatcherReturnCodes::GO_MENU) {
             renderer = new MainMenu::MainMenuRenderer();
             eventHandler = new MainMenu::MainMenuEventHandler();
+        } else if (returnCode == AUX::DispatcherReturnCodes::GO_SHELTER) {
+            renderer = new Shelter::ShelterRenderer();
+            eventHandler = new Shelter::ShelterEventHandler();
         }
 
         /*switch(returnCode) {

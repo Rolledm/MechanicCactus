@@ -4,7 +4,7 @@
 namespace AUX {
 
     enum class DispatcherReturnCodes {
-        OK, GO_MAP, GO_MENU
+        OK, GO_MAP, GO_MENU, GO_SHELTER
     };
 
 }

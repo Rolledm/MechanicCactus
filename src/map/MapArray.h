@@ -14,7 +14,7 @@ namespace Map {
 
         Node* getNode(int x, int y);
 
-        void movePlayer(int x, int y);
+        int movePlayer(int x, int y);
     private:
         const int MAX_X, MAX_Y;
         Node*** array;

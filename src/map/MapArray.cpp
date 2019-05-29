@@ -81,13 +81,13 @@ namespace Map {
         return array[y][x];
     }
 
-    void MapArray::movePlayer(int x, int y) {
+    int MapArray::movePlayer(int x, int y) {
         if (array[player->getY() + y][player->getX() + x]->getEntity() == nullptr) {
             array[player->getY()][player->getX()]->setEntity(nullptr);
             player->setPosition(player->getX() + x, player->getY() + y);
             array[player->getY()][player->getX()]->setEntity(player);
         } else {
-            EntityHandler::getInstance().ProcessEntity(array[player->getY() + y][player->getX() + x]->getEntity());
+            return EntityHandler::getInstance().ProcessEntity(array[player->getY() + y][player->getX() + x]->getEntity());
         }
     }
 
